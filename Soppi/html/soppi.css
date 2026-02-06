@@ -1,0 +1,91 @@
+/* Style général pour voir le néon */
+body {
+  background-color: #050505; /* Fond noir profond */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+
+}
+.neon-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  color: #00ffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  /* Ajout d'une lueur sur le texte */
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+}
+
+.neon-card {
+  width: 300px;
+  background: rgba(15, 15, 30, 0.9);
+  border: 2px solid #00ffff;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.neon-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+/* Correction de l'image */
+.neon-card img {
+  width: 100%;
+  height: 300px; 
+  object-position: center top;
+  object-fit: cover;
+  display: block;
+}
+
+.neon-card-content {
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.neon-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  color: #00ffff; /* Texte bleu néon */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.neon-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #cccccc;
+}
+
+/* Animation de lumière */
+.neon-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.9s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.neon-card:hover::before {
+  left: 100%;
+}
